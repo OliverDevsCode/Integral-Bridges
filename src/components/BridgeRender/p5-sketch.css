@@ -1,0 +1,7 @@
+.p5-wrapper canvas {
+  border: 2px solid #000;
+}
+
+.p5-wrapper canvas:hover {
+  box-shadow: 0 6px 12px rgba(58, 77, 77, 0.7);
+}

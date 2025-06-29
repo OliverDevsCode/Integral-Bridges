@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Sketch from 'react-p5';
 import { evaluate} from 'mathjs';
+import './p5-sketch.css'
 
 function P5Sketch({levelData}) {
     const [BridgePoints, setBridgePoints] = useState([])
@@ -107,8 +108,10 @@ function P5Sketch({levelData}) {
     }
 
     return (
+    <div className="p5-wrapper">
         <Sketch setup={setup} draw={draw} />
-    )
+    </div>
+)
 }
 
 export default P5Sketch;
