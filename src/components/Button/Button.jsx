@@ -1,4 +1,5 @@
 import React from 'react';
+import './Button.css'
 
 const Button = ({ text, buttoncolor,textcolor, onClick }) => {
   const style = {
@@ -10,7 +11,7 @@ const Button = ({ text, buttoncolor,textcolor, onClick }) => {
     cursor: 'pointer',
   };
 
-  return <button style={style} onClick={onClick}>{text}</button>;
+  return <button id='button-style' style={style} onClick={onClick}>{text}</button>;
 };
 
 export default Button;
