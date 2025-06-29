@@ -9,7 +9,7 @@ const LevelCard = ({id,name,stars}) => {
     <div className='card'>
         <h1>Level {id}</h1>
         <h2>{name}</h2>
-        <p>Stars: {stars}</p>
+        <p>Difficulty Stars: {stars}</p>
         <button onClick={() => navigate(`/play?id=${id}`)} >PLAY</button>
     </div>
   )

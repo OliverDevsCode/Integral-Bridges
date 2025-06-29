@@ -14,6 +14,7 @@ function P5Sketch({levelData}) {
 
     const bridge_equation = levelData.bridgeEquation;
     const ground_equation = levelData.terrainEquation;
+    const bridgeLength = levelData.bridgeLength
 
     const screenH = window.innerHeight
     const screenW = window.innerWidth
@@ -37,6 +38,21 @@ function P5Sketch({levelData}) {
         if (GroundPoints.length > 0) {
         drawGround(p5);
         }
+
+        //draw label
+        p5.push()
+        p5.stroke('#000');
+        p5.textSize(20)
+        p5.text(`${bridgeLength}m`,canvasW-50,canvasH-50)
+        p5.pop()
+
+        //draw scale lines
+        p5.push()
+        p5.stroke('#FFF');
+        p5.strokeWeight(4)
+        p5.drawingContext.setLineDash([20, 10]);
+        p5.line(0, canvasH-30, canvasW, canvasH-30);
+        p5.pop()
     }
 
     const calculateBridge = (p5) => {
@@ -59,10 +75,10 @@ function P5Sketch({levelData}) {
 
     const calculateGround = (p5) => {
         let points = []
-        const scale_factor = canvasW/10
+        const scale_factor = canvasW/bridgeLength
 
         // provide a scope
-        for(let i=0; i<10;i+=(10/(canvasW))){
+        for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
         let scope = {
                 x: i
         }
@@ -77,6 +93,7 @@ function P5Sketch({levelData}) {
 
 
     const drawBridge = (p5) =>{
+        p5.push()
         p5.stroke('#000');
         p5.strokeWeight(4)
         p5.fill('#FFF');  
@@ -96,15 +113,18 @@ function P5Sketch({levelData}) {
                 p5.pop()
             }
         })
+        p5.pop()
     }
 
     const drawGround = (p5) =>{
+        p5.push()
         p5.stroke('#4F7942');
         p5.strokeWeight(4)
         GroundPoints.forEach((point)=>{
             p5.point(point[0],point[1])
             p5.line(point[0],point[1],point[0],canvasH)
         })
+        p5.pop()
     }
 
     return (

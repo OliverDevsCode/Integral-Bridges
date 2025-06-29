@@ -1,10 +1,19 @@
+//react components
 import React from 'react'
-import P5Sketch from './components/BridgeRender/p5-sketch';
-import EquationGraphic from './components/equationGraphic/equationGraphic';
 import { useSearchParams } from 'react-router-dom';
 import { getLevelDataById } from './utils/levelData';
-import Button from './components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+
+//first column
+import Button from './components/Button/Button';
+
+
+//middle column
+import P5Sketch from './components/BridgeRender/p5-sketch';
+import EquationGraphic from './components/equationGraphic/equationGraphic';
+
+//right column
+import Shop from './components/Shop/Shop';
 
 import './gameWindow.css'
 
@@ -34,7 +43,7 @@ const GameWindow = () => {
       </div>
 
       <div className='right-column'>
-
+        <Shop levelData={levelData}/>
       </div>
       
     </div>
