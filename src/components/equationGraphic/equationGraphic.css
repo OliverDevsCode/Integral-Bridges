@@ -1,0 +1,40 @@
+.equation-card {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.equation-card-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 24px; 
+}
+
+.equation-single {
+  border: 1px solid #ccc;
+  padding: 8px 16px; 
+  background: #fff;  
+  border-radius: 6px; 
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.equation-single:hover:not(:disabled) {
+  box-shadow: 0 6px 12px rgba(58, 77, 77, 0.7);
+}
+
+#bridge {
+  color: #ffffff;
+  
+  background: #685f5f;  
+}
+
+#ground {
+  color: #ffffff;
+  background: #336037;  
+}

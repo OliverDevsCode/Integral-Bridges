@@ -1,20 +1,15 @@
 import { useState } from 'react';
 import Sketch from 'react-p5';
-import { useSearchParams } from 'react-router-dom';
-import { getLevelDataById } from '../levelData';
-import { evaluate, forEach} from 'mathjs';
+import { evaluate} from 'mathjs';
 
-function P5Sketch() {
+function P5Sketch({levelData}) {
     const [BridgePoints, setBridgePoints] = useState([])
     const [GroundPoints, setGroundPoints] = useState([])
-    //params will be level number
-    //use helper function to gather equation of bridge and terrain line
-    const [searchParams] = useSearchParams();
-    const id = searchParams.get('id');
 
-    console.log(`Receiving level ${id} `)
-    const levelData = getLevelDataById(id);
+
     console.log(`Level Data:`,levelData)
+
+    
 
     const bridge_equation = levelData.bridgeEquation;
     const ground_equation = levelData.terrainEquation;
@@ -87,13 +82,13 @@ function P5Sketch() {
         const lastPoint = BridgePoints[BridgePoints.length-1]
         BridgePoints.forEach((point)=>{
             p5.point(point[0],point[1])
-            if(point[0]==0){
+            if(point[0]===0){
                 p5.push()
                 p5.strokeWeight(8)
                 p5.line(point[0],point[1]-20,0,canvasH)
                 p5.pop()
             }
-            if(point==lastPoint){
+            if(point===lastPoint){
                 p5.push()
                 p5.strokeWeight(8)
                 p5.line(point[0],point[1]-20,canvasW,canvasH)

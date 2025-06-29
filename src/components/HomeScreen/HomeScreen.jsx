@@ -7,7 +7,7 @@ const HomeScreen = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className='HomeScreen'>
       <div className='title'>
         <h1>Welcome to Integral Bridges</h1>
         <h2>Calculus. Construct. Conquer.</h2>

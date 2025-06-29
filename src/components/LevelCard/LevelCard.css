@@ -11,7 +11,9 @@
   margin-top: 20px; 
   transition: transform .2s ease;
   padding-bottom: 10px;
-  min-width: 500px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card:hover {

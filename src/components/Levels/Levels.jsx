@@ -1,7 +1,7 @@
-import levels from '../../level data/levels.json';
-import React, { useEffect, useState } from 'react';
+import levels from '../../level_data/levels.json';
+import React, { useEffect} from 'react';
 import LevelCard from '../LevelCard/LevelCard';
-import './Levels.css'
+import '../../utils/levelData'
 
 const Levels = () => {
 
@@ -14,7 +14,7 @@ const Levels = () => {
   return (
     <div>
       {levels.map(level => (
-        <LevelCard id={level.id} name={level.name} stars = {level.stars}/>
+        <LevelCard key = {level.id} id={level.id} name={level.name} stars = {level.stars}/>
       ))}
     </div>
   )

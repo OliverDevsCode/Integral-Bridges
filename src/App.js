@@ -1,7 +1,7 @@
 import './App.css';
-import P5Sketch from './components/BridgeRender/p5-sketch';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Levels from './components/Levels/Levels';
+import GameWindow from './gameWindow';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Routes>
       <Route path="/" element={<HomeScreen />} />
       <Route path="/levels" element={<Levels />} />
-      <Route path="/play" element={<P5Sketch />} />
+      <Route path="/play" element={<GameWindow />} />
       </Routes>
     </BrowserRouter>
   );
