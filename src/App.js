@@ -1,5 +1,5 @@
 import './App.css';
-import P5Sketch from './components/p5-sketch';
+import P5Sketch from './components/BridgeRender/p5-sketch';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Levels from './components/Levels/Levels';
 import { BrowserRouter, Routes, Route } from "react-router-dom";

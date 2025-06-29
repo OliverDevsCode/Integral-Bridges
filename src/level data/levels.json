@@ -15,7 +15,7 @@
     "id": 2,
     "name": "Curved Bridge",
     "terrainEquation": "(1/6 *(sin(x)))+0.2",
-    "bridgeEquation": "-1/30X^2 + 4",
+    "bridgeEquation": "-1/30*(x-5)^2 + 4",
     "bridgeType": "line",
     "materialOptions": ["carbon fibre", "steel"],
     "budget": 10000,
