@@ -14,7 +14,7 @@ const Shop = ({levelData}) => {
         for(let i=0;i < levelData.materialOptions.length; i++){
           for(let j= 0; j < materials_json.length; j++){
           if(materials_json[j].name == levelData.materialOptions[i]){
-            allowed.push(materials_json[i])
+            allowed.push(materials_json[j])
           }
         }
         }
