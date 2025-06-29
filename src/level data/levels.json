@@ -2,10 +2,25 @@
   {
     "id": 1,
     "name": "Flat Bridge",
-    "terrain": "0",
+    "terrainEquation": "0",
+    "bridgeEquation": "4",
     "bridgeType": "line",
     "materialOptions": ["wood", "steel"],
     "budget": 1000,
-    "instructions": "Calculate the area under the straight bridge and select the material."
+    "domain": [-5, 5],
+    "instructions": "Calculate the area under the straight bridge and select the material",
+    "stars":1
+  },
+  {
+    "id": 2,
+    "name": "Curved Bridge",
+    "terrainEquation": "(1/6 *(sin(x)))+0.2",
+    "bridgeEquation": "-1/30X^2 + 4",
+    "bridgeType": "line",
+    "materialOptions": ["carbon fibre", "steel"],
+    "budget": 10000,
+    "domain": [-5, 5],
+    "instructions": "Calculate the area under the bridge, dont forget the waves",
+    "stars":2
   }
 ]
