@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Flat Bridge",
+    "terrain": "0",
+    "bridgeType": "line",
+    "materialOptions": ["wood", "steel"],
+    "budget": 1000,
+    "instructions": "Calculate the area under the straight bridge and select the material."
+  }
+]
