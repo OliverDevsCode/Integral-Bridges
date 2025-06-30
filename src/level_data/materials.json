@@ -2,17 +2,17 @@
   {
     "name":"Wood",
     "cost": 50,
-    "strength": 10
+    "strength": 2
   },
   {
     "name":"Steel",
     "cost": 150,
-    "strength": 100
+    "strength": 10
   },
   {
     "name":"Carbon Fibre",
     "cost": 200,
-    "strength": 150
+    "strength": 15
   }
   
 ]

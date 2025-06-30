@@ -9,6 +9,7 @@
     "groundFormatted":"y=0",
     "materialOptions": ["Wood", "Steel"],
     "budget": 1000,
+    "strength":500,
     "bridgeLength": 20,
     "instructions": "Calculate the area under the straight bridge and select the material",
     "stars":1
@@ -16,13 +17,14 @@
   {
     "id": 2,
     "name": "Curved Bridge",
-    "terrainEquation": "(1/6 *(sin(x)))+0.2",
+    "terrainEquation": "(1/6)*sin(x) + (1/5)",
     "bridgeEquation": "-1/30*(x-5)^2 + 4",
     "bridgeFormatted":"y=-\\frac{1}{30}\\left(x-5\\right)^{2}+4",
-    "groundFormatted":"y=\\frac{1}{6}\\cdot\\sin x+0.2",
+    "groundFormatted":"y=\\frac{1}{6}\\cdot\\sin x+ \\frac{1}{5}\\",
     "bridgeType": "line",
     "materialOptions": ["Carbon Fibre", "Steel"],
-    "budget": 10000,
+    "budget": 7500,
+    "strength":100,
     "bridgeLength": 10,
     "instructions": "Calculate the area under the bridge, dont forget the waves",
     "stars":2
