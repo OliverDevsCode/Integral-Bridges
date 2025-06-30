@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import materials_json from '../../level_data/materials.json'
 import { all, sort } from 'mathjs';
+import { MoonLoader } from 'react-spinners';
+
+import './AnswerBox.css'
 
 
 const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegral,userInputs,levelData }) => {
@@ -12,6 +15,7 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
   const [areaIsCorrect,setAreaIsCorrect] = useState(false); //used for validating if points are met
   const [costIsCorrect,setCostIsCorrect] = useState(false);
   const [inStrength,setInStrength] = useState(false);
+  const [mostEfficient,setMostEfficient] = useState(false)
   const [checkedAnswer,setCheckedAnswer] = useState(false)
 
   useEffect(()=>{
@@ -68,6 +72,7 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
     //compare with user inputs
     if(material_name == possible_materials[0].name){
       console.log("Best option picked")
+      setMostEfficient(true)
       //best option picked
       if((parseFloat(area)).toPrecision(3) === correctArea){
         //area is correct
@@ -109,16 +114,31 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
     setCheckedAnswer(true)
   }
 
-  if(checkedAnswer == false){
-    
-  }
-
-  return (
-    <div>
-      <p>Answer Box</p>
+  if(checkedAnswer === false){
+    return (
+      <div>
+        <p>Answer Box</p>
+        <MoonLoader />
+      </div>
+    )
+  }else{
+    return (
+    <div className='answer-box'>
+      <p className='title'>Answer Box</p>
+      <div className='results'>
+        <div className='results'>
+          <p className={String(mostEfficient)}>Most Efficient Material: {String(mostEfficient)}</p>
+          <p className={String(areaIsCorrect)}>Correct Area: {String(areaIsCorrect)}</p>
+          <p className={String(costIsCorrect)}>Correct Cost: {String(costIsCorrect)}</p>
+          <p className={String(inStrength)}>Correct Strength: {String(inStrength)}</p>
+      </div>
+      </div>
       <button onClick={goBack}>Go Back</button>
     </div>
   )
+  }
+
+  
 }
 
 export default AnswerBox

@@ -8,7 +8,7 @@
     "bridgeFormatted":"y=4",
     "groundFormatted":"y=0",
     "materialOptions": ["Wood", "Steel"],
-    "budget": 1000,
+    "budget": 12500,
     "strength":500,
     "bridgeLength": 20,
     "instructions": "Calculate the area under the straight bridge and select the material",

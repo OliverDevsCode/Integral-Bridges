@@ -1,0 +1,16 @@
+.answer-box {
+  border-radius: 8px;
+  padding: 15px 5px;
+  margin-bottom: 10px;
+  background-color: rgb(219, 222, 144);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.results .true{
+  color: green;
+}
+
+.results .false{
+  color: rgb(229, 28, 28);
+}
