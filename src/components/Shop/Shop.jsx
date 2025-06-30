@@ -4,7 +4,7 @@ import materials_json from '../../level_data/materials.json'
 
 import './Shop.css'
 
-const Shop = ({levelData}) => {
+const Shop = ({levelData,setMaterial}) => {
 
   const [materials, setMaterials] = useState([])
 
@@ -13,7 +13,7 @@ const Shop = ({levelData}) => {
         const allowed = []
         for(let i=0;i < levelData.materialOptions.length; i++){
           for(let j= 0; j < materials_json.length; j++){
-          if(materials_json[j].name == levelData.materialOptions[i]){
+          if(materials_json[j].name === levelData.materialOptions[i]){
             allowed.push(materials_json[j])
           }
         }
@@ -30,7 +30,7 @@ const Shop = ({levelData}) => {
       </div>
       <div className='items'>
         {materials.map(material =>(
-          <ShopItem name={material.name} cost={material.cost} strength={material.strength}/>
+          <ShopItem id = {material.name} name={material.name} cost={material.cost} strength={material.strength} setMaterial={setMaterial}/>
         ))}
       </div>
       

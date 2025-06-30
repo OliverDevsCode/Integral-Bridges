@@ -4,7 +4,13 @@ import './ShopItem.css'
 import Button from '../Button/Button';
 
 
-const ShopItem = ({name,cost,strength}) => {
+const ShopItem = ({name,cost,strength,setMaterial}) => {
+
+  function selectMaterial(){
+    sessionStorage.setItem("material",name)
+    setMaterial(name)
+  }
+
   return (
     <div className='item'>
       <p>{name}</p>
@@ -15,7 +21,7 @@ const ShopItem = ({name,cost,strength}) => {
                 {`\\[ Strength:\\,${strength} \\]`}
       </MathJax>
       <div className='button'>
-        <Button text="SELECT" textcolor="white" buttoncolor ="green" onClick={() => console.log("Added")} />
+        <Button text="SELECT" textcolor="white" buttoncolor ="green" onClick={() => { selectMaterial(); console.log("Added");}} />
       </div>
     </div>
   )

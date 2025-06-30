@@ -1,5 +1,5 @@
 //react components
-import React from 'react'
+import React , {useState }from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { getLevelDataById } from './utils/levelData';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ import EquationGraphic from './components/equationGraphic/equationGraphic';
 
 //right column
 import Shop from './components/Shop/Shop';
+import InputBox from './components/InputBox/InputBox';
 
 import './gameWindow.css'
 
@@ -21,6 +22,8 @@ import './gameWindow.css'
 const GameWindow = () => {
 
   const navigate = useNavigate(); //for back button
+
+  const [material, setMaterial] = useState(''); //for sharing material selected
   
 
   const [searchParams] = useSearchParams();
@@ -43,7 +46,8 @@ const GameWindow = () => {
       </div>
 
       <div className='right-column'>
-        <Shop levelData={levelData}/>
+        <Shop levelData={levelData} setMaterial={setMaterial}/>
+        <InputBox levelData={levelData} material={material}/>
       </div>
       
     </div>
