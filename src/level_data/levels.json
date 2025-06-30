@@ -41,7 +41,7 @@
     "bridgeType": "curve",
     "materialOptions": ["Carbon Fibre", "Steel"],
     "budget": 330,
-    "strength":20,
+    "strength":12,
     "bridgeLength": 2,
     "bridgeHeight":2,
     "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
