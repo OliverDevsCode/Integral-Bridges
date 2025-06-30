@@ -1,0 +1,32 @@
+.container {
+  color: rgb(254, 254, 254);
+  background-color: rgb(173, 144, 109);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.false {
+  color: red;
+}
+
+.true {
+  color: rgb(128, 255, 0);
+}
+
+.objectives-row {
+  display: flex;
+  justify-content: space-between; /* or space-around / space-evenly */
+  gap: 1rem; /* spacing between items */
+  margin-bottom: 1rem;
+  padding: 1%;
+}
+
+.objectives-row > div {
+  flex: 1;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+}
+

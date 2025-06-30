@@ -4,7 +4,7 @@ import calculateAnswer from '../../utils/integrationFunctions'
 
 import AnswerBox from '../AnswerBox/AnswerBox';
 
-const InputBox = ({ levelData ,material}) => {
+const InputBox = ({ levelData ,material,setResults}) => {
 
   const [correctArea,setCorrectArea] = useState(0)
   const [groundIntegral,setGroundIntegral] = useState('')
@@ -42,7 +42,7 @@ const InputBox = ({ levelData ,material}) => {
     const userInputs = [material,userCost,userArea]
     return (
     <div>
-      <AnswerBox setAnswerSubmitted={setAnswerSubmitted} correctArea={correctArea} groundIntegral={groundIntegral} bridgeIntegral={bridgeIntegral} userInputs ={userInputs} levelData={levelData} />
+      <AnswerBox setAnswerSubmitted={setAnswerSubmitted} correctArea={correctArea} groundIntegral={groundIntegral} bridgeIntegral={bridgeIntegral} userInputs ={userInputs} levelData={levelData} setResults={setResults} />
     </div>
     )
   }else if(answerSubmitted === true && material===''){

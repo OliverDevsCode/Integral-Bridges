@@ -1,0 +1,11 @@
+.level-details {
+  color: rgb(254, 254, 254);
+  background-color: rgb(173, 144, 109);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+}

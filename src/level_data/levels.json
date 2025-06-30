@@ -26,7 +26,7 @@
     "budget": 7500,
     "strength":100,
     "bridgeLength": 10,
-    "instructions": "Calculate the area under the bridge, dont forget the waves",
+    "instructions": "Calculate the area under the bridge, don't forget the terrain",
     "stars":2
   }
 ]

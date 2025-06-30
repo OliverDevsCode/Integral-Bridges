@@ -6,7 +6,7 @@ import { MoonLoader } from 'react-spinners';
 import './AnswerBox.css'
 
 
-const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegral,userInputs,levelData }) => {
+const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegral,userInputs,levelData,setResults }) => {
 
   const [userMaterial,setUserMaterial] = useState('');
   const [userArea,setUserArea] = useState('');
@@ -69,22 +69,32 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
 
     console.log("User Inputs",material_name,area,cost)
 
+    //local for passing
+    let local_efficient = false;
+    let local_area = false;
+    let local_cost = false;
+    let local_strength = false;
+
     //compare with user inputs
     if(material_name == possible_materials[0].name){
       console.log("Best option picked")
       setMostEfficient(true)
+      local_efficient = true
       //best option picked
       if((parseFloat(area)).toPrecision(3) === correctArea){
         //area is correct
         setAreaIsCorrect(true)
+        local_area = true
         console.log("Area Correct")
       }
       if((parseFloat(cost)).toPrecision(3) === (possible_materials[0].cost * correctArea).toPrecision(3)){
         //correct area
         setCostIsCorrect(true)
+        local_cost = true
         console.log("Cost Correct")
       }
       setInStrength(true)
+      local_strength = true
     }else{
       console.log("checking possible other materials")
       for(let i=1; i < possible_materials.length;i++){
@@ -94,24 +104,30 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
         if((parseFloat(area)).toPrecision(3) === correctArea){
         //area is correct
         setAreaIsCorrect(true)
+        local_area = true
         console.log("Area Correct")
         }
         if((parseFloat(cost)).toPrecision(3) === (possible_materials[i].cost * correctArea).toPrecision(3)){
         //correct area
         setCostIsCorrect(true)
+        local_cost = true
         console.log("Cost Correct")
         }
         setInStrength(true)
+        local_strength = true
       }
       }
     }
-
-    if(area === correctArea){
+    
+    //check if area is correct with incorrect material
+    if((parseFloat(area)).toPrecision(3) === correctArea){
       setAreaIsCorrect(true)
+      local_area = true
     }
 
     //answer checked
     setCheckedAnswer(true)
+    setResults([local_efficient,local_area,local_cost,local_strength])
   }
 
   if(checkedAnswer === false){
