@@ -8,6 +8,9 @@ const HomeScreen = () => {
 
   return (
     <div className='HomeScreen'>
+      <div>
+        <img src="/logo-no-bg.png" alt="Game-Logo"/>
+      </div>
       <div className='title'>
         <h1>Welcome to Integral Bridges</h1>
         <h2>Calculus. Construct. Conquer.</h2>
