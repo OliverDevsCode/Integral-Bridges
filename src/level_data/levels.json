@@ -44,7 +44,7 @@
     "strength":20,
     "bridgeLength": 2,
     "bridgeHeight":2,
-    "instructions": "Calculate the area under the bridge, don't forget the terrain",
+    "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
     "stars":3
   }
 ]
