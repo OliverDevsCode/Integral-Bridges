@@ -11,6 +11,7 @@
     "budget": 12500,
     "strength":250,
     "bridgeLength": 20,
+    "bridgeHeight":10,
     "instructions": "Calculate the area under the straight bridge and select the material",
     "stars":1
   },
@@ -26,6 +27,7 @@
     "budget": 7500,
     "strength":500,
     "bridgeLength": 10,
+    "bridgeHeight":5,
     "instructions": "Calculate the area under the bridge, don't forget the terrain",
     "stars":2
   },
@@ -41,6 +43,7 @@
     "budget": 330,
     "strength":20,
     "bridgeLength": 2,
+    "bridgeHeight":2,
     "instructions": "Calculate the area under the bridge, don't forget the terrain",
     "stars":3
   }

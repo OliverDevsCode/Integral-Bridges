@@ -57,7 +57,9 @@ function P5Sketch({levelData}) {
 
     const calculateBridge = (p5) => {
         let points = []
-        const scale_factor = canvasW/bridgeLength
+        const bridgeHeight = levelData.bridgeHeight
+        const y_scale_factor = canvasH/bridgeHeight //hard coded 25m max bridge height
+        const x_scale_factor = canvasW/bridgeLength //hard coded 25m max bridge height
 
         // provide a scope
         for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
@@ -65,8 +67,8 @@ function P5Sketch({levelData}) {
                 x: i
         }
         const result = evaluate(bridge_equation, scope); 
-        const correctedValue = canvasH-(result*scale_factor)
-        points.push([i*scale_factor,correctedValue])
+        const correctedValue = canvasH-(result*y_scale_factor)
+        points.push([i*x_scale_factor,correctedValue])
         }
 
         // console.log("Points:",points)
@@ -75,7 +77,9 @@ function P5Sketch({levelData}) {
 
     const calculateGround = (p5) => {
         let points = []
-        const scale_factor = canvasW/bridgeLength
+        const bridgeHeight = levelData.bridgeHeight
+        const y_scale_factor = canvasH/bridgeHeight //hard coded 25m max bridge height
+        const x_scale_factor = canvasW/bridgeLength //hard coded 25m max bridge height
 
         // provide a scope
         for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
@@ -83,8 +87,8 @@ function P5Sketch({levelData}) {
                 x: i
         }
         const result = evaluate(ground_equation, scope); 
-        const correctedValue = canvasH-(result*scale_factor)
-        points.push([i*scale_factor,correctedValue])
+        const correctedValue = canvasH-(result*y_scale_factor)
+        points.push([i*x_scale_factor,correctedValue])
         }
 
         // console.log("Points:",points)
