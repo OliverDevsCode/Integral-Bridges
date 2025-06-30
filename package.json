@@ -10,6 +10,7 @@
     "algebrite": "^1.4.0",
     "better-react-mathjax": "^2.3.0",
     "mathjs": "^14.5.2",
+    "nerdamer": "^1.1.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-p5": "^1.4.1",

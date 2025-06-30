@@ -57,10 +57,10 @@ function P5Sketch({levelData}) {
 
     const calculateBridge = (p5) => {
         let points = []
-        const scale_factor = canvasW/10
+        const scale_factor = canvasW/bridgeLength
 
         // provide a scope
-        for(let i=0; i<10;i+=(10/(canvasW))){
+        for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
         let scope = {
                 x: i
         }

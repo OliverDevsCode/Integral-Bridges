@@ -1,14 +1,22 @@
 import Algebrite from 'algebrite';
 import { evaluate} from 'mathjs';
+const nerdamer = require('nerdamer/all');
 
 export default function calculateAnswer(bridge,ground,length){
-  const bridge_integral = Algebrite.integral(bridge).toString();
+  console.log("attemping to integrate",bridge)
+  const bridge_integral = nerdamer.integrate(bridge).toString();
   console.log("bridge integration",bridge_integral)
   let scope = {
                 x: length
   }
-  const bridge_result = evaluate(bridge_integral, scope); 
-  console.log(`Definite Integration: ${bridge_result}`)
+  const bridge_result_upper = evaluate(bridge_integral, scope); 
+
+  scope = {
+                x: 0
+  }
+  const bridge_result_lower = evaluate(bridge_integral, scope); 
+
+  const bridge_area = bridge_result_upper-bridge_result_lower
 
   console.log(`Attemping to integrate ${ground}`)
 
@@ -18,10 +26,18 @@ export default function calculateAnswer(bridge,ground,length){
   scope = {
                 x: length
   }
-  const ground_result = evaluate(ground_integral, scope); 
-  console.log(`Definite Integration: ${ground_result}`)
+  const ground_result_upper = evaluate(ground_integral, scope); 
 
-  const answer = (bridge_result-ground_result).toPrecision(3);
+  scope = {
+                x: 0
+  }
+  const ground_result_lower = evaluate(ground_integral, scope);
+
+  const ground_area = ground_result_upper - ground_result_lower
+  console.log(`Definite Integration: ${ground_area}`)
+
+
+  const answer = (bridge_area-ground_area).toPrecision(3);
 
   console.log(`Area Below: ${answer}`)
   return [bridge_integral,ground_integral,answer]
