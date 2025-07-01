@@ -41,3 +41,15 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+#correct {
+  background-color: lightgreen;
+}
+
+#neutral {
+  background-color: rgb(255, 226, 6);
+}
+
+#wrong {
+  background-color: rgb(255, 6, 6);
+}

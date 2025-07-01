@@ -128,6 +128,43 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
     //answer checked
     setCheckedAnswer(true)
     setResults([local_efficient,local_area,local_cost,local_strength])
+
+    //save results to allow users to continue 
+    if(local_efficient===true && local_area ===true && local_cost === true && local_strength === true){
+      console.log("Level Completed")
+      const existing = localStorage.getItem("progress-correct")
+      console.log("existing progress-correct",existing)
+      if(existing === null){
+        localStorage.setItem("progress-correct",[levelData.id])
+      }else{
+        if(existing.includes(levelData.id) === false){
+          console.log("existing is ",existing)
+          localStorage.setItem("progress-correct",[existing,levelData.id])
+          //remove from incorrect
+          const incorrectProgress = JSON.parse("[" + (localStorage.getItem("progress-incorrect")) + "]");
+          let newList = []
+          incorrectProgress.sort((a,b)=>(a-b));
+          for(let i=0;i<incorrectProgress;i++){
+            if(incorrectProgress[i] !== levelData.id){
+              newList.push(incorrectProgress[i])
+            }
+          }
+          localStorage.setItem("progress-incorrect",newList)
+        }
+      }
+    }else{
+      console.log("Level Incorrect")
+      const existing = localStorage.getItem("progress-incorrect")
+      console.log("existing progress-incorrect",existing)
+      if(existing === null){
+        localStorage.setItem("progress-incorrect",[levelData.id])
+      }else{
+        if(existing.includes(levelData.id) === false){
+          console.log("existing is ",existing)
+          localStorage.setItem("progress-incorrect",[existing,levelData.id])
+        }
+      }
+    }
   }
 
   if(checkedAnswer === false){
