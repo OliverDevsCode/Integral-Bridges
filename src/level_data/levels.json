@@ -60,7 +60,7 @@
     "strength":3800,
     "bridgeLength": 30,
     "bridgeHeight":12,
-    "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
-    "stars":3
+    "instructions": "Calculate the area under the bridge, you might have break this down into parts 😉",
+    "stars":4
   }
 ]
