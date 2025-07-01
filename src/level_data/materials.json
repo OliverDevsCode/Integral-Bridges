@@ -1,18 +1,47 @@
 [
   {
-    "name":"Wood",
+    "name": "Plastic",
+    "cost": 30,
+    "strength": 1
+  },
+  {
+    "name": "Wood",
     "cost": 50,
     "strength": 2
   },
   {
-    "name":"Steel",
+    "name": "Bamboo",
+    "cost": 40,
+    "strength": 3
+  },
+  {
+    "name": "Concrete",
+    "cost": 100,
+    "strength": 6
+  },
+  {
+    "name": "Aluminum",
+    "cost": 120,
+    "strength": 7
+  },
+  {
+    "name": "Steel",
     "cost": 150,
     "strength": 10
   },
   {
-    "name":"Carbon Fibre",
+    "name": "Carbon Fibre",
     "cost": 200,
     "strength": 15
+  },
+  {
+    "name": "Titanium",
+    "cost": 300,
+    "strength": 20
+  },
+  {
+    "name": "Graphene Composite",
+    "cost": 500,
+    "strength": 30
   }
-  
 ]

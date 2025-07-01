@@ -46,5 +46,21 @@
     "bridgeHeight":2,
     "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
     "stars":3
+  },
+  {
+    "id": 4,
+    "name": "A Strange Canyon Lies Beneath",
+    "terrainEquation": "4*((1 - sin(x)^2) * sin(x)) + 9/5",
+    "bridgeEquation": "2 * x * exp(-1/10 * x) + 3",
+    "bridgeFormatted":"y=2xe^{-\\frac{1}{10}x}+3",
+    "groundFormatted":"y=4\\cos^{2}\\left(x\\right)\\sin\\left(x\\right)+1.8",
+    "bridgeType": "curve",
+    "materialOptions": ["Titanium", "Graphene Composite","Carbon Fibre"],
+    "budget": 60000,
+    "strength":3800,
+    "bridgeLength": 30,
+    "bridgeHeight":12,
+    "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
+    "stars":3
   }
 ]
