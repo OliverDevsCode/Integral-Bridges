@@ -9,7 +9,7 @@
 -  Integration Practice  
 -  Material Selection  
 -  Problem Solving  
--  Progression Saving *(Coming Soon)*  
+-  Progression Saving *(New Feature)*  
 -  Create Custom Levels *(Coming Soon)*  
 
 ---
