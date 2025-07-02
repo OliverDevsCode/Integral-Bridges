@@ -74,7 +74,7 @@ function P5Sketch({levelData,results}) {
         //image correct values
 
         //valid run - drive entire length
-        if(results[1] ===true && results[2] === true && results[3] === true){
+        if(results[1] ===true && results[3] === true){
 
             //loop animation
             if(frame === Math.round(canvasW-2)){
@@ -104,7 +104,8 @@ function P5Sketch({levelData,results}) {
             
             //next frame
             frame++
-        }else{
+        }
+        if(results[1] ===false || results[3] === false){
             //loop animation
             const breakFrame = Math.round(canvasW*0.2); //break at certain 10% frame
             
