@@ -63,13 +63,14 @@ function P5Sketch({levelData,results}) {
 
         //car animation
         if(results.length !== 0){
-            animateTestRun(p5,results)
+            let lastAngle = 0;
+            animateTestRun(p5,results,lastAngle)
         }
 
         
     }
 
-    const animateTestRun = (p5,results) => {
+    const animateTestRun = (p5,results,lastAngle) => {
         //image correct values
 
         //valid run - drive entire length
@@ -107,7 +108,7 @@ function P5Sketch({levelData,results}) {
             //loop animation
             const breakFrame = Math.round(canvasW*0.2); //break at certain 10% frame
             
-            if(frame === Math.round(canvasW-2)){
+            if(frame === Math.round((canvasW-2)*0.65)){
                 frame = 0
             }
 
@@ -120,8 +121,23 @@ function P5Sketch({levelData,results}) {
 
             
             if(frame >= breakFrame){
-                p5.image(p5.carGraphic, carPos[0] - xCorrection, carPos[1] - yCorrection + (frame*0.75), 100, 100);
-                p5.line(carPos[0] - xCorrection,carPos[1] - yCorrection + (frame*0.75)+65,carPos[0] - xCorrection+75,carPos[1] - yCorrection + (frame*0.75)+65)
+                const fallSpeed = 4;
+                const fallFrame = frame-breakFrame
+                const fallY = fallFrame * fallSpeed;
+                const t = Math.min(fallFrame / 120, 1); 
+                const currentAngle = lastAngle * (1 - t) + (Math.PI / 2) * t;
+
+                p5.push();
+                p5.translate(carPos[0] - xCorrection + 50, carPos[1] - yCorrection + fallY + 50);
+                p5.angleMode('RADIANS');
+                p5.rotate(currentAngle);
+                p5.imageMode(p5.CENTER);
+                p5.image(p5.carGraphic, 0, 0, 100, 100);
+                p5.pop();
+                p5.push()
+                p5.strokeWeight(4)
+                p5.line(BridgePoints[breakFrame][1] - xCorrection + 50,BridgePoints[breakFrame][1] - yCorrection + (fallFrame*4)+65,BridgePoints[breakFrame][1] - xCorrection+125,BridgePoints[breakFrame][1] - yCorrection + (fallFrame*4)+65)
+                p5.pop()
             }else{
                 //calculate angle
             const nextPoint = BridgePoints[frame+1][1]
@@ -137,6 +153,7 @@ function P5Sketch({levelData,results}) {
             p5.imageMode(p5.CENTER);
             p5.image(p5.carGraphic, 0, 0, 100, 100);
             p5.pop();
+            lastAngle = angleToRotate
             }
             
             //next frame
