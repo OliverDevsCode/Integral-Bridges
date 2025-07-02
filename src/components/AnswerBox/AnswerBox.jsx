@@ -142,14 +142,17 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
           localStorage.setItem("progress-correct",[existing,levelData.id])
           //remove from incorrect
           const incorrectProgress = JSON.parse("[" + (localStorage.getItem("progress-incorrect")) + "]");
+          if(incorrectProgress.length > 0){
           let newList = []
           incorrectProgress.sort((a,b)=>(a-b));
-          for(let i=0;i<incorrectProgress;i++){
-            if(incorrectProgress[i] !== levelData.id){
+          for(let i=0;i<incorrectProgress.length;i++){
+            if(incorrectProgress[i] != levelData.id){
               newList.push(incorrectProgress[i])
             }
           }
           localStorage.setItem("progress-incorrect",newList)
+          }
+          
         }
       }
     }else{
