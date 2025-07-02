@@ -24,11 +24,16 @@ function P5Sketch({levelData,results}) {
     const canvasW = screenW*0.65
     const canvasH = screenH*0.6
 
-    let frame = 0
+    let frame = 0;
+    let cloudFrame = [0,canvasW/4,canvasW/2,canvasW/1.5];
+    let cloudPosY = [20,40,60,20];
 
 
     const preload = (p5) => {
         p5.carGraphic = p5.loadImage('carGraphic.png');
+        p5.cloud1 = p5.loadImage('/clouds/cloud1.png');
+        p5.cloud2 = p5.loadImage('/clouds/cloud2.png');
+        p5.cloud3 = p5.loadImage('/clouds/cloud3.png');
         calculateBridge()
         calculateGround()
     };
@@ -39,6 +44,28 @@ function P5Sketch({levelData,results}) {
 
     const draw = (p5) => {
         p5.background('#87CEEB')
+
+        //clouds first - need to be overlayed
+        for(let i=0; i < cloudFrame.length; i++){
+            if(cloudFrame[i] >= canvasW){
+                cloudFrame[i] = -80
+                let change = 50 - Math.random(0,1) * 100
+                while((cloudPosY[i]+change)>canvasH/2){
+                    change = 50 - Math.random(0,1) * 100
+                } 
+                cloudPosY[i] = cloudPosY[i] +change
+            } 
+        }
+
+        p5.image(p5.cloud1,cloudFrame[0],cloudPosY[0],70,50)
+        p5.image(p5.cloud2,cloudFrame[1],cloudPosY[1],80,60)
+        p5.image(p5.cloud3,cloudFrame[2],cloudPosY[2],70,60)
+        p5.image(p5.cloud2,cloudFrame[3],cloudPosY[3],80,60)
+
+        for(let i=0; i < cloudFrame.length; i++){
+            cloudFrame[i] += 0.1
+        }
+        
         if (BridgePoints.length > 0) {
         drawBridge(p5); 
         }
