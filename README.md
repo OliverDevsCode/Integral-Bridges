@@ -10,6 +10,7 @@
 -  Material Selection  
 -  Problem Solving  
 -  Progression Saving *(New Feature)*  
+-  Bridge Testing Animations *(New Feature)*  
 -  Create Custom Levels *(Coming Soon)*  
 
 ---
