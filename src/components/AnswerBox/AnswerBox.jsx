@@ -161,7 +161,8 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
       }else{
         if(existing.includes(levelData.id) === false){
           console.log("existing is ",existing)
-          localStorage.setItem("progress-incorrect",[existing,levelData.id])
+          const incorrectProgress = JSON.parse("[" + (localStorage.getItem("progress-incorrect")) + "]");
+          localStorage.setItem("progress-incorrect",incorrectProgress.push(levelData.id))
         }
       }
     }
