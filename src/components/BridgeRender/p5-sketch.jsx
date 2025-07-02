@@ -136,7 +136,7 @@ function P5Sketch({levelData,results}) {
                 p5.pop();
                 p5.push()
                 p5.strokeWeight(4)
-                p5.line(BridgePoints[breakFrame][1] - xCorrection + 50,BridgePoints[breakFrame][1] - yCorrection + (fallFrame*4)+65,BridgePoints[breakFrame][1] - xCorrection+125,BridgePoints[breakFrame][1] - yCorrection + (fallFrame*4)+65)
+                p5.line(breakFrame - xCorrection + 50,BridgePoints[breakFrame][1] - yCorrection + (fallY)+65,breakFrame - xCorrection+125,BridgePoints[breakFrame][1] - yCorrection + (fallY)+65)
                 p5.pop()
             }else{
                 //calculate angle
