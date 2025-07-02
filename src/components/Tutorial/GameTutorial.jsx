@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './GameTutorial.css';
@@ -18,17 +19,17 @@ const GameTutorial = () => {
   const navigate = useNavigate();
   
 
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-        markers: false,
-      },
-    });
+  useLayoutEffect(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: containerRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      pin: true,
+      markers: false,
+    },
+  });
 
     tl.to(imageRef.current, {
       scale: 2,
@@ -99,33 +100,47 @@ const GameTutorial = () => {
   }, []);
 
   return (
-    <>
-  {/* fixed header/UI chrome */}
-  <button className="back-button" onClick={() => navigate('/')}>
+   <>
+
+  <button className="back-button-tutorial" onClick={() => navigate('/')}>
     Go Back To Menu
   </button>
   <p className="scroll-indicator">Scroll to View</p>
 
-  {/* only this gets pinned */}
-  <section className="walkthrough">
-    <div className="ui-container" ref={containerRef}>
+
+  <section className="walkthrough" ref={containerRef}>
+    <div className="ui-container">
       <img
         ref={imageRef}
         src="/GUI.png"
         alt="Game UI"
         className="ui-image"
       />
-      {/* … your labels … */}
+      <div className="label" ref={label1Ref}>
+        These are your equations; You need to integrate these to find the area below the bridge and above the ground
+      </div>
+      <div className="label" ref={label2Ref}>
+        These are the materials you can use. Make sure to stay within budget and meet the strength requirements
+      </div>
+      <div className="label" ref={label3Ref}>
+        Enter Final Answer and Submit Here
+      </div>
+      <div className="label" ref={label4Ref}>
+        Level Objectives: make sure to meet all the requirements
+      </div>
+      <div className="label" ref={label5Ref}>
+        <p>Happy Integrating!</p>
+      </div>
     </div>
   </section>
 
-  {/* call to action below */}
   <div className="play-button-container">
     <button className="play-button" onClick={() => navigate('/levels')}>
       Click here to play
     </button>
   </div>
 </>
+
 
   );
 };
