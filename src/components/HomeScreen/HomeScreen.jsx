@@ -63,6 +63,8 @@ const HomeScreen = () => {
       <div className='options'>
         <button  onClick={() => navigate('/levels')} id='levels'>Levels</button>
         <button id='load' onClick={loadProgress}>Load Progress (New Feature)</button>
+        <button  onClick={() => navigate('/tutorial')} id='tutorial'>Tutorial</button>
+
       </div>
     </div>
   )

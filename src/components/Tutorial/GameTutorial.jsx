@@ -100,36 +100,33 @@ const GameTutorial = () => {
 
   return (
     <>
-      <section className="walkthrough" ref={containerRef}>
-        <p class="scroll-indicator">Scroll to View</p>
-        <div className="ui-container">
-          <img
-            ref={imageRef}
-            src="/GUI.png"
-            alt="Game UI"
-            className="ui-image"
-          />
-          <div className="label" ref={label1Ref}>
-            These are your equations; You need to integrate these to find the area below the bridge and above the ground
-          </div>
-          <div className="label" ref={label2Ref}>
-            These are the materials you can use. Make sure to stay within budget and meet the strength requirements
-          </div>
-          <div className="label" ref={label3Ref}>Enter Final Answer and Submit Here</div>
-          <div className="label" ref={label4Ref}>Level Objectives: make sure to meet all the requirements</div>
-          <div className="label" ref={label5Ref}>
-            <p>Happy Integrating!</p>
-          </div>
-        </div>
-      </section>
+  {/* fixed header/UI chrome */}
+  <button className="back-button" onClick={() => navigate('/')}>
+    Go Back To Menu
+  </button>
+  <p className="scroll-indicator">Scroll to View</p>
 
-      {/* BIG BUTTON BELOW THE SCROLL */}
-      <div className="play-button-container">
-        <button className="play-button" onClick={() => navigate('/levels')}>
-          Click here to play
-        </button>
-      </div>
-    </>
+  {/* only this gets pinned */}
+  <section className="walkthrough">
+    <div className="ui-container" ref={containerRef}>
+      <img
+        ref={imageRef}
+        src="/GUI.png"
+        alt="Game UI"
+        className="ui-image"
+      />
+      {/* … your labels … */}
+    </div>
+  </section>
+
+  {/* call to action below */}
+  <div className="play-button-container">
+    <button className="play-button" onClick={() => navigate('/levels')}>
+      Click here to play
+    </button>
+  </div>
+</>
+
   );
 };
 

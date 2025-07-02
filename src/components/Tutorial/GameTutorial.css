@@ -52,6 +52,20 @@
   background: #ff3b1f;
 }
 
+.back-button {
+  background: #1d1b1a;
+  border: none;
+  padding: 1%;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: #ff3007;
+}
+
 
 
 .scroll-indicator {
