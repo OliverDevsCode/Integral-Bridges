@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Sketch from 'react-p5';
-import { evaluate} from 'mathjs';
+import { evaluate, re} from 'mathjs';
 import './p5-sketch.css'
 
-function P5Sketch({levelData}) {
+function P5Sketch({levelData,results}) {
     const [BridgePoints, setBridgePoints] = useState([])
     const [GroundPoints, setGroundPoints] = useState([])
 
@@ -23,11 +23,18 @@ function P5Sketch({levelData}) {
 
     const canvasW = screenW*0.65
     const canvasH = screenH*0.6
+
+    let frame = 0
+
+
+    const preload = (p5) => {
+        p5.carGraphic = p5.loadImage('carGraphic.png');
+        calculateBridge()
+        calculateGround()
+    };
     
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(canvasW, canvasH).parent(canvasParentRef);
-        calculateBridge()
-        calculateGround()
     }
 
     const draw = (p5) => {
@@ -53,13 +60,99 @@ function P5Sketch({levelData}) {
         p5.drawingContext.setLineDash([20, 10]);
         p5.line(0, canvasH-30, canvasW, canvasH-30);
         p5.pop()
+
+        //car animation
+        if(results.length !== 0){
+            animateTestRun(p5,results)
+        }
+
+        
+    }
+
+    const animateTestRun = (p5,results) => {
+        //image correct values
+
+        //valid run - drive entire length
+        if(results[1] ===true && results[2] === true && results[3] === true){
+
+            //loop animation
+            if(frame === Math.round(canvasW-2)){
+                frame = 0
+            }
+
+            const xCorrection = 50
+            const yCorrection = 65
+
+            const carPos = [frame,BridgePoints[frame][1]]
+
+            //calculate angle
+            const nextPoint = BridgePoints[frame+1][1]
+
+            const deltaX = 1
+            const deltaY = nextPoint - carPos[1]
+
+            const angleToRotate = Math.atan2(deltaY, deltaX);
+            
+            p5.push();
+            p5.translate((carPos[0] - xCorrection) + 50, (carPos[1] - yCorrection) + 50);
+            p5.angleMode('RADIANS');
+            p5.rotate(angleToRotate);
+            p5.imageMode(p5.CENTER);
+            p5.image(p5.carGraphic, 0, 0, 100, 100);
+            p5.pop();
+            
+            //next frame
+            frame++
+        }else{
+            //loop animation
+            const breakFrame = Math.round(canvasW*0.2); //break at certain 10% frame
+            
+            if(frame === Math.round(canvasW-2)){
+                frame = 0
+            }
+
+            const xCorrection = 50
+            const yCorrection = 65
+
+            const carPos = [frame,BridgePoints[frame][1]]
+
+            //break at certain 10% frame
+
+            
+            if(frame >= breakFrame){
+                p5.image(p5.carGraphic, carPos[0] - xCorrection, carPos[1] - yCorrection + (frame*0.75), 100, 100);
+                p5.line(carPos[0] - xCorrection,carPos[1] - yCorrection + (frame*0.75)+65,carPos[0] - xCorrection+75,carPos[1] - yCorrection + (frame*0.75)+65)
+            }else{
+                //calculate angle
+            const nextPoint = BridgePoints[frame+1][1]
+
+            const deltaX = 1
+            const deltaY = nextPoint - carPos[1]
+
+            const angleToRotate = Math.atan2(deltaY, deltaX);
+            p5.push();
+            p5.translate((carPos[0] - xCorrection) + 50, (carPos[1] - yCorrection) + 50);
+            p5.angleMode('RADIANS');
+            p5.rotate(angleToRotate);
+            p5.imageMode(p5.CENTER);
+            p5.image(p5.carGraphic, 0, 0, 100, 100);
+            p5.pop();
+            }
+            
+            //next frame
+            frame++
+
+
+        }
+
+        
     }
 
     const calculateBridge = (p5) => {
         let points = []
         const bridgeHeight = levelData.bridgeHeight
-        const y_scale_factor = canvasH/bridgeHeight //hard coded 25m max bridge height
-        const x_scale_factor = canvasW/bridgeLength //hard coded 25m max bridge height
+        const y_scale_factor = canvasH/bridgeHeight 
+        const x_scale_factor = canvasW/bridgeLength 
 
         // provide a scope
         for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
@@ -133,7 +226,7 @@ function P5Sketch({levelData}) {
 
     return (
     <div className="p5-wrapper">
-        <Sketch setup={setup} draw={draw} />
+        <Sketch preload = {preload} setup={setup} draw={draw} />
     </div>
 )
 }

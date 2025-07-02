@@ -46,7 +46,7 @@ const GameWindow = () => {
         
       <div className='middle-column'>
         <EquationGraphic levelData={levelData}/>
-        <P5Sketch levelData={levelData}/>
+        <P5Sketch levelData={levelData} results={results}/>
         <ObjectivesCard results={results} levelData={levelData}/>
       </div>
 
