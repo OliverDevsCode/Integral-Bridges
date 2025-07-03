@@ -13,7 +13,8 @@
     "bridgeLength": 20,
     "bridgeHeight":10,
     "instructions": "Calculate the area under the straight bridge and select the material",
-    "stars":1
+    "stars":1,
+    "prodecural":false
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@
     "bridgeLength": 10,
     "bridgeHeight":5,
     "instructions": "Calculate the area under the bridge, don't forget the terrain",
-    "stars":2
+    "stars":2,
+    "prodecural":false
   },
   {
     "id": 3,
@@ -45,7 +47,8 @@
     "bridgeLength": 2,
     "bridgeHeight":2,
     "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
-    "stars":3
+    "stars":3,
+    "prodecural":false
   },
   {
     "id": 4,
@@ -61,7 +64,8 @@
     "bridgeLength": 30,
     "bridgeHeight":12,
     "instructions": "Calculate the area under the bridge, you might have break this down into parts 😉",
-    "stars":4
+    "stars":4,
+    "prodecural":false
   },
   {
     "id": 5,
@@ -77,6 +81,24 @@
     "bridgeLength":1.6,
     "bridgeHeight":1.9,
     "instructions": "Calculate the area under the bridge, maybe 'double' down on your thinking 😉",
-    "stars":2
+    "stars":2,
+    "prodecural":false
+  },
+  {
+    "id": 6,
+    "name": "A Procedural Nightmare",
+    "terrainEquation": null,
+    "bridgeEquation": null,
+    "bridgeFormatted":null,
+    "groundFormatted":null,
+    "bridgeType": "curve",
+    "materialOptions": null,
+    "budget": null,
+    "strength":null,
+    "bridgeLength":null,
+    "bridgeHeight":null,
+    "instructions": "Calculate the area under the bridge, this one's different every refresh 1!",
+    "stars":2,
+    "prodecural":true
   }
 ]
