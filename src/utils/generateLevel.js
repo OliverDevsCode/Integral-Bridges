@@ -62,16 +62,16 @@ let selectedMaterialGroup = [];
 let materialNames = [];
 let materialObj = null;
 
-// // Pick material group based on result value
-// if (result <= 10) {
-//   selectedMaterialGroup = [materials_json[0], materials_json[1], materials_json[2]];
-// } else if (result <= 50) {
-//   selectedMaterialGroup = [materials_json[3], materials_json[4], materials_json[5]];
-// } else {
-//   selectedMaterialGroup = [materials_json[6], materials_json[7], materials_json[8]];
-// }
+// Pick material group based on result value
+if (result <= 10) {
+  selectedMaterialGroup = [materials_json[0], materials_json[1], materials_json[2]];
+} else if (result <= 20) {
+  selectedMaterialGroup = [materials_json[3], materials_json[4], materials_json[5]];
+} else {
+  selectedMaterialGroup = [materials_json[6], materials_json[7], materials_json[8]];
+}
 
-  selectedMaterialGroup = [materials_json[6], materials_json[7], materials_json[8]]; //hard coding
+  // selectedMaterialGroup = [materials_json[6], materials_json[7], materials_json[8]]; //hard coding
 
 
 // Select a random material for cost/strength calculation
