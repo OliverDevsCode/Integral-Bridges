@@ -9,7 +9,7 @@ const nerdamer = require('nerdamer/all');
 
 export function generateLevel(levelData) {
   console.log(`recieved`,levelData)
-  const k1 = randomInt(1,3)
+  const k1 = randomInt(2,4)
   let k2 = randomInt(1,3)
   const a = randomInt(1,10)
   const b = randomInt(-5,-1)
@@ -19,7 +19,8 @@ export function generateLevel(levelData) {
   console.log(`K1:${k1}, K2:${k2}`)
 
   const customBridge = `(-1/${a})*x*(x${b})+${k1}`; //for json
-  const customTerrain = "sin(" + k2 + "*x)"  //for json
+  // const customTerrain = "sin(" + k2 + "*x)"  //for json
+  const customTerrain = `1/${k2} * sin(x) + ${k2}`;//for json
 
   console.log("Bridge",customBridge)
   console.log("Terrain",customTerrain)
@@ -45,8 +46,10 @@ export function generateLevel(levelData) {
   // const bridgeHeight = bridgeLength * 1.25
   console.log(`Bridge Length ${bridgeLength}`)
 
+  //random bridge length
+
   const customBridgeFormatted = `y=-\\frac{1}{${a}}x\\left(x${b}\\right)+${k1}`; //for json
-  const customTerrainFormatted = `y=\\sin\\left(${k2}x\\right)` //for json
+  const customTerrainFormatted = `y=\\frac{1}{${k2}}\\sin\\left(x\\right)+${k2}` //for json
 
   //calculate area for materials selection
 

@@ -86,7 +86,7 @@
   },
   {
     "id": 6,
-    "name": "A Procedural Nightmare",
+    "name": "(I don't know how I made this work) bridge",
     "terrainEquation": null,
     "bridgeEquation": null,
     "bridgeFormatted":null,
@@ -97,7 +97,7 @@
     "strength":null,
     "bridgeLength":null,
     "bridgeHeight":null,
-    "instructions": "Calculate the area under the bridge, this one's different every refresh 1!",
+    "instructions": "Calculate the area under the bridge, this one's different every refresh!",
     "stars":2,
     "prodecural":true
   }
