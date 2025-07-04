@@ -81,7 +81,7 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
       setMostEfficient(true)
       local_efficient = true
       //best option picked
-      if((parseFloat(area)).toPrecision(3) === correctArea){
+      if((parseFloat(area)).toPrecision(3) === correctArea.toPrecision(3)){
         //area is correct
         setAreaIsCorrect(true)
         local_area = true
@@ -101,7 +101,7 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
         if(material_name == possible_materials[i].name){
         console.log("inferer option picked")
         //best option picked
-        if((parseFloat(area)).toPrecision(3) === correctArea){
+        if((parseFloat(area)).toPrecision(3) === correctArea.toPrecision(3)){
         //area is correct
         setAreaIsCorrect(true)
         local_area = true
@@ -120,7 +120,7 @@ const AnswerBox = ({ setAnswerSubmitted,correctArea,groundIntegral,bridgeIntegra
     }
     
     //check if area is correct with incorrect material
-    if((parseFloat(area)).toPrecision(3) === correctArea){
+    if((parseFloat(area)).toPrecision(3) === correctArea.toPrecision(3)){
       setAreaIsCorrect(true)
       local_area = true
     }

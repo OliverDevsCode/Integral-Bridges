@@ -37,7 +37,7 @@ export default function calculateAnswer(bridge,ground,length){
   console.log(`Definite Integration: ${ground_area}`)
 
 
-  const answer = (bridge_area-ground_area).toPrecision(3);
+  const answer = (bridge_area-ground_area); //removed precision as it messed up future calcs
 
   console.log(`Area Below: ${answer}`)
   return [bridge_integral,ground_integral,answer]

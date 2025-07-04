@@ -9,8 +9,8 @@ const nerdamer = require('nerdamer/all');
 
 export function generateLevel(levelData) {
   console.log(`recieved`,levelData)
-  const k1 = randomInt(2,4)
-  let k2 = randomInt(1,3)
+  const k1 = randomInt(4,8)
+  let k2 = randomInt(2,6)
   const a = randomInt(1,10)
   const b = randomInt(-5,-1)
   while(k2 >= k1){
@@ -80,7 +80,7 @@ materialObj = selectedMaterialGroup[randomSelect];
 
 // Compute budget and strength targets
 budgetTarget = Math.floor(materialObj.cost * result * 1.25);
-strengthTarget = materialObj.strength * result * 0.75;
+strengthTarget = Math.floor(materialObj.strength * result * 0.75);
 
 // Get string names for the allowed materials
 const materialsAllowed = selectedMaterialGroup.map(m => m.name);
