@@ -64,7 +64,7 @@ const HomeScreen = () => {
         <button  onClick={() => navigate('/levels')} id='levels'>Levels</button>
         <button id='load' onClick={loadProgress}>Load Progress (New Feature)</button>
         <button  onClick={() => navigate('/tutorial')} id='tutorial'>Tutorial</button>
-        <button  onClick={() => navigate('/play?id=6')} id='procedural'>Procedurally Generated Level (New Feature)</button>
+        <button  onClick={() => navigate('/procedural')} id='procedural'>Procedurally Generated Zone (New Feature)</button>
         <button  onClick={() => {localStorage.removeItem('progress-incorrect'); 
                                 localStorage.removeItem('progress-correct')}
         } id='reset'>Reset Progress

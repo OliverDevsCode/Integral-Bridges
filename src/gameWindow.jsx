@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { getLevelDataById } from './utils/levelData';
-import { generateLevel } from './utils/generateLevel';
+import { generateLevel, generateLevelFromSeed } from './utils/generateLevel';
 import { useNavigate } from 'react-router-dom';
 
 //first column
@@ -26,21 +26,36 @@ const GameWindow = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
+  const userSeed = searchParams.get('seed');
 
   const [levelData, setLevelData] = useState(null); // state to hold final level
   const [readyToDisplay, setReadyToDisplay] = useState(false);
   const [material, setMaterial] = useState('');
   const [results, setResults] = useState([]);
 
+  const [seed,setSeed] = useState('');
+
   useEffect(() => {
     const baseData = getLevelDataById(id);
 
-    if (baseData.prodecural) {
-      console.log("Procedural level... Generating");
-      const [generatedLevel, success] = generateLevel({ ...baseData }); // clone to avoid mutation
+    console.log("Recieved User Seed",userSeed);
+
+    if (baseData.prodecural && userSeed === null) {
+      console.log("Procedural level... Generating NEW");
+      const [generatedLevel, success, seedGenerated] = generateLevel({ ...baseData }); // clone to avoid mutation
       setLevelData(generatedLevel);
       setReadyToDisplay(success);
-    } else {
+      setSeed(seedGenerated)
+      console.log("Seed Generated:",seedGenerated)
+    } else if (baseData.prodecural === true && userSeed !== null){
+      console.log("Procedural level... Generating From Seed");
+      const [generatedLevel, success, seedGenerated] = generateLevelFromSeed({ ...baseData },userSeed); // clone to avoid mutation
+      setLevelData(generatedLevel);
+      setReadyToDisplay(success);
+      setSeed(seedGenerated)
+      console.log("Seed Generated:",seedGenerated)
+    } 
+    else {
       setLevelData(baseData);
       setReadyToDisplay(true);
     }
@@ -53,13 +68,13 @@ const GameWindow = () => {
   return (
     <div className="game-window-container">
       <div className='left-column'>
-        <Button text="Go Back" textcolor="white" buttoncolor="red" onClick={() => navigate(`/levels`)} />
-        <LevelDisplay levelData={levelData} />
+        <Button text="Go Back" textcolor="white" buttoncolor="red" onClick={() => navigate(-1)} />
+        <LevelDisplay levelData={levelData} seed={seed} />
       </div>
 
       <div className='middle-column'>
         <EquationGraphic levelData={levelData} />
-        <P5Sketch levelData={levelData} results={results} />
+        <P5Sketch levelData={levelData} results={results}/>
         <ObjectivesCard results={results} levelData={levelData} />
       </div>
 
