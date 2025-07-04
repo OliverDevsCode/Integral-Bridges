@@ -5,6 +5,8 @@ import GameWindow from './gameWindow';
 import GameTutorial from './components/Tutorial/GameTutorial';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { Analytics } from "@vercel/analytics/react"
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +16,7 @@ function App() {
       <Route path="/play" element={<GameWindow />} />
       <Route path="/tutorial" element={<GameTutorial />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
