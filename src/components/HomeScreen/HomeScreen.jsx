@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import levels from '../../level_data/levels.json'
 import { sort } from 'mathjs';
 
-import { track } from '@vercel/analytics';
-
 const HomeScreen = () => {
 
   const navigate = useNavigate();
@@ -63,13 +61,12 @@ const HomeScreen = () => {
         <h2>Calculus. Construct. Conquer.</h2>
       </div>
       <div className='options'>
-        <button  onClick={() => {navigate('/levels'); track('clicked_levels');} } id='levels'>Levels</button>
-        <button id='load' onClick={()=> {loadProgress(); track('clicked_load_progress');}}>Load Progress (New Feature)</button>
-        <button  onClick={() => {navigate('/tutorial'); track('clicked_tutorial');}} id='tutorial'>Tutorial</button>
-        <button  onClick={() => {navigate('/play?id=6'); track('clicked_procedural');}} id='procedural'>Procedurally Generated Level (New Feature)</button>
+        <button  onClick={() => navigate('/levels')} id='levels'>Levels</button>
+        <button id='load' onClick={loadProgress}>Load Progress (New Feature)</button>
+        <button  onClick={() => navigate('/tutorial')} id='tutorial'>Tutorial</button>
+        <button  onClick={() => navigate('/play?id=6')} id='procedural'>Procedurally Generated Level (New Feature)</button>
         <button  onClick={() => {localStorage.removeItem('progress-incorrect'); 
-                                localStorage.removeItem('progress-correct');
-                                track('clicked_reset_progress');}
+                                localStorage.removeItem('progress-correct')}
         } id='reset'>Reset Progress
         </button>
       </div>
