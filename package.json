@@ -10,6 +10,7 @@
     "@vercel/analytics": "^1.5.0",
     "algebrite": "^1.4.0",
     "better-react-mathjax": "^2.3.0",
+    "firebase": "^11.10.0",
     "gsap": "^3.13.0",
     "mathjs": "^14.5.2",
     "nerdamer": "^1.1.13",

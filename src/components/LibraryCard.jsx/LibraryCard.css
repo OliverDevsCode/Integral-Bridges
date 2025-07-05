@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+.seed-card {
+  background-color: #4b2e2e; 
+  color: #a3d977; 
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin: 1rem 0;
+  max-width: 500px;
+  transition: transform 0.2s ease;
+  font-family: "Poiret One", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.seed-card .seed-text {
+  font-size: 16px;
+}
+
+.seed-card:hover {
+  transform: scale(1.02);
+}
+
+.seed-card h3 {
+  margin-top: 0;
+  color: #b7e283; 
+}
+
+#play-seed {
+  background-color: #4b2e2e;    
+  color: #a3d977;                 
+  border: 2px solid #a3d977;     
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#play-seed:hover {
+  background-color: #a3d977;     
+  color: #4b2e2e;                
+  border-color: #4b2e2e;
+}
+
+#play-seed:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(163, 217, 119, 0.6); 
+}
+

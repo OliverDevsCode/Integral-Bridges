@@ -69,6 +69,7 @@ const HomeScreen = () => {
                                 localStorage.removeItem('progress-correct')}
         } id='reset'>Reset Progress
         </button>
+        <button  onClick={() => navigate('/seedLibrary')} id='seed-library'>Seed Library (New Feature)</button>
       </div>
     </div>
   )

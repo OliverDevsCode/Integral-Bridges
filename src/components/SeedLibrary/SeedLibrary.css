@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+.library-container {
+  background: linear-gradient(to bottom, #a86b32 0%, #5c3a1d 100%);
+  color: aliceblue;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Poiret One", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.library-container h1 {
+  margin-bottom: 0.25rem;
+}
+
+.library-container p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #a3d977;
+}
+
+.seed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px; /* optional max width */
+}
+
+#contribute-button {
+  background-color: #4b2e2e;    
+  color: #a3d977;                 
+  border: 2px solid #a3d977;     
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-family: "Poiret One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#contribute-button:hover {
+  background-color: #a3d977;     
+  color: #4b2e2e;                
+  border-color: #4b2e2e;
+}
+
+#contribute-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(163, 217, 119, 0.6); 
+}
