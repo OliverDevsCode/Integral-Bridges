@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import LibraryCard from '../LibraryCard.jsx/LibraryCard'
 import { fetchAllSeeds } from '../../utils/databaseAccess'
 
+import Button from '../Button/Button';
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -26,6 +28,13 @@ const SeedLibrary = () => {
 
   return (
   <div className='library-container'>
+    <Button
+      className="back-button-wrapper"
+      text="Go Back"
+      textcolor="white"
+      buttoncolor="red"
+      onClick={() => navigate(-1)}
+      />
     <h1>Welcome To The Seed Libary 🌱</h1>
     <p>Explore Seeds Found By The Community</p>
     <button id='contribute-button' onClick={() => navigate(`/contribute`)}>Click to Contribute</button>

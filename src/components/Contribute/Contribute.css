@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 .contribute-container {
+  position: relative; /* add this */
   background: linear-gradient(to bottom, #5c3a1d, #a86b32);
   color: aliceblue;
   min-height: 100vh;
@@ -13,9 +14,16 @@
   font-size: 18px;
 }
 
+
 .contribute-container h2 {
   margin-bottom: 1rem;
   color: #a3d977;
+}
+
+/* Position the back button top-left */
+.back-button-wrapper {
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
 }
 
 .contribute-form {

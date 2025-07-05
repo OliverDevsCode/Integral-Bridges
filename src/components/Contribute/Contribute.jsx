@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { auth, provider } from "../../utils/firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 
+import { useNavigate } from 'react-router-dom';
+
+
+import Button from '../Button/Button';
+
 import { writeSeed } from "../../utils/databaseAccess";
 
 import './Contribute.css'
@@ -11,6 +16,8 @@ const Contribute = () => {
   const [seed, setSeed] = useState("");
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((u) => setUser(u));
@@ -51,6 +58,13 @@ const Contribute = () => {
 
   return (
     <div className="contribute-container">
+      <Button
+      className="back-button-wrapper"
+      text="Go Back"
+      textcolor="white"
+      buttoncolor="red"
+      onClick={() => navigate(-1)}
+      />
       <h2>Contribute a Seed</h2>
       <form onSubmit={handleSubmit} className="contribute-form">
         <input
