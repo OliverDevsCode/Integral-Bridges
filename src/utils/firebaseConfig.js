@@ -21,6 +21,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GithubAuthProvider();
+
+console.log("Firebase API Key:", process.env.REACT_APP_API_KEY);
+
 export const db = getFirestore(app);
 
 export { auth, provider };
