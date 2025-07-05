@@ -107,7 +107,7 @@ const materialsAllowed = selectedMaterialGroup.map(m => m.name);
   console.log("Created:",levelData)
 
   //create seed for level
-  const seed = `K${k1}K${k2}A${a}B${b}b${budgetTarget}S${strengthTarget}M${materialsIds}L${bridgeLength}H${bridgeHeight}E` //E For end
+  const seed = `K${k1}K${k2}A${a}B${-b}b${budgetTarget}S${strengthTarget}M${materialsIds}L${bridgeLength}H${bridgeHeight}E` //E For end
 
   return [levelData,true,seed]
 
@@ -155,7 +155,7 @@ export function generateLevelFromSeed(levelData,seed){
   console.log("Val a",val)
   a = parseInt(val)
 
-  val = '';
+  val = '-';
   index ++ // skip closing B
   while(seed[index] !== 'b'){
     console.log("Current character",seed[index])
