@@ -41,6 +41,10 @@ const ProceduralMenu = () => {
           <p>Generate New Level</p>
           <button onClick={()=>{navigate('/play?id=6')}}>Play</button>
       </div>
+      <div className='new-container'>
+        <p>Explore Community Submitted Seeds</p>
+        <button onClick={() => navigate('/seedLibrary')} >Find</button>
+      </div>
     </div>
   )
 }
