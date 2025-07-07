@@ -42,6 +42,11 @@ const Contribute = () => {
     if(result === null){
       console.log("Failed")
       alert("Please Try Again")
+    }else{
+      alert("Successful,Thank you!")
+      setName('')
+      setSeed('')
+      setTitle('')
     }
   };
 
