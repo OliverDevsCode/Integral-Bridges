@@ -11,6 +11,7 @@
 -  Problem Solving  
 -  Progression Saving *(New Feature)*  
 -  Bridge Testing Animations *(New Feature)*  
+-  Procedural Generation *(New Feature)*  
 -  Create Custom Levels *(Coming Soon)*  
 
 ---

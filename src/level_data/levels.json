@@ -121,7 +121,7 @@
     "bridgeLength":1.5,
     "bridgeHeight":3.1,
     "instructions": "Calculate the area under the bridge, perhaps sub (sin(x)+1)!",
-    "stars":2,
+    "stars":4,
     "substitution":[true,"sin(x)+1","cos(x)*sin(x)*((1+sin(x))^3)"],
     "prodecural":false
   }
