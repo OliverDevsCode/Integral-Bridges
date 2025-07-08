@@ -14,7 +14,7 @@
     "bridgeHeight":10,
     "instructions": "Calculate the area under the straight bridge and select the material",
     "stars":1,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":false
   },
   {
@@ -32,7 +32,7 @@
     "bridgeHeight":5,
     "instructions": "Calculate the area under the bridge, don't forget the terrain",
     "stars":2,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":false
   },
   {
@@ -50,7 +50,7 @@
     "bridgeHeight":2,
     "instructions": "Calculate the area under the bridge, you might have to reverse engineer this one 😉",
     "stars":3,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":false
   },
   {
@@ -68,7 +68,7 @@
     "bridgeHeight":12,
     "instructions": "Calculate the area under the bridge, you might have break this down into parts 😉",
     "stars":4,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":false
   },
   {
@@ -86,7 +86,7 @@
     "bridgeHeight":1.9,
     "instructions": "Calculate the area under the bridge, maybe 'double' down on your thinking 😉",
     "stars":2,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":false
   },
   {
@@ -104,7 +104,7 @@
     "bridgeHeight":null,
     "instructions": "Calculate the area under the bridge, this one's different every refresh!",
     "stars":2,
-    "substitution":[false,""],
+    "substitution":[false,"",""],
     "prodecural":true
   },
   {
