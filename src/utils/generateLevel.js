@@ -53,7 +53,7 @@ export function generateLevel(levelData) {
 
   //calculate area for materials selection
 
-  const result = parseFloat(calculateAnswer(customBridge,customTerrain,parseFloat(bridgeLength))[2])
+  const result = parseFloat(calculateAnswer(customBridge,customTerrain,parseFloat(bridgeLength),levelData.substitution)[2])
 
   let strengthTarget;
 let budgetTarget;

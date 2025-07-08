@@ -17,7 +17,7 @@ const InputBox = ({ levelData ,material,setResults}) => {
   
   useEffect(()=>{
     //calculate correct answer
-    const correctAnswer = calculateAnswer(levelData.bridgeEquation,levelData.terrainEquation,levelData.bridgeLength); 
+    const correctAnswer = calculateAnswer(levelData.bridgeEquation,levelData.terrainEquation,levelData.bridgeLength,levelData.substitution); 
     setBridgeIntegral(correctAnswer[0]);
     setGroundIntegral(correctAnswer[1]);
     setCorrectArea(correctAnswer[2])

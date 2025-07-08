@@ -14,7 +14,10 @@ function P5Sketch({levelData,results}) {
 
     const bridge_equation = levelData.bridgeEquation;
     const ground_equation = levelData.terrainEquation;
-    const bridgeLength = levelData.bridgeLength
+
+    //bridgeLength can change depending on type of integration
+
+    const bridgeLength = levelData.bridgeLength;
 
     const screenH = window.innerHeight
     const screenW = window.innerWidth
@@ -199,6 +202,18 @@ function P5Sketch({levelData,results}) {
         const y_scale_factor = canvasH/bridgeHeight 
         const x_scale_factor = canvasW/bridgeLength 
 
+        if(levelData.substitution[0] === true){
+            // provide substitution
+            for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
+            let scope = {
+                    x: i
+            }
+            const result = evaluate(levelData.substitution[2], scope); 
+            const correctedValue = canvasH-(result*y_scale_factor)
+            points.push([i*x_scale_factor,correctedValue])
+            }
+
+        }else{
         // provide a scope
         for(let i=0; i<bridgeLength;i+=(bridgeLength/(canvasW))){
         let scope = {
@@ -208,6 +223,9 @@ function P5Sketch({levelData,results}) {
         const correctedValue = canvasH-(result*y_scale_factor)
         points.push([i*x_scale_factor,correctedValue])
         }
+        }
+
+        
 
         // console.log("Points:",points)
         setBridgePoints(points)
