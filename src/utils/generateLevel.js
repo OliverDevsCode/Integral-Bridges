@@ -12,7 +12,7 @@ export function generateLevel(levelData) {
   const k1 = randomInt(4,8)
   let k2 = randomInt(2,6)
   const a = randomInt(1,10)
-  const b = randomInt(-5,-1)
+  const b = randomInt(-10,-1)
   while(k2 >= k1){
     k2 -= 1
   }
